@@ -12,6 +12,16 @@ export interface ILeadApiService {
   submitLead(data: SubmitPublicLeadDTO): Promise<PublicLeadApiResponse>
 }
 
+/**
+ * Production Zarp API host. Used when ZARP_API_ENDPOINT_URL is absent so a
+ * missing env var degrades to the real backend instead of an unroutable
+ * placeholder domain.
+ */
+const DEFAULT_ZARP_API_BASE_URL = "https://api.zarpstudio.com"
+
+/** Request timeout for lead submission, in milliseconds. */
+const LEAD_REQUEST_TIMEOUT_MS = 10_000
+
 export class LeadApiService implements ILeadApiService {
   private readonly client: AxiosInstance
   private readonly tenantKey: string
@@ -21,17 +31,21 @@ export class LeadApiService implements ILeadApiService {
     const tenantKey = process.env.NEXT_PUBLIC_TENANT_KEY
 
     if (!apiUrl) {
-      console.warn("ZARP_API_ENDPOINT_URL is not configured, using fallback")
+      console.warn(
+        `ZARP_API_ENDPOINT_URL is not configured, falling back to ${DEFAULT_ZARP_API_BASE_URL}`
+      )
     }
 
     if (!tenantKey) {
-      console.warn("NEXT_PUBLIC_TENANT_KEY is not configured, using fallback")
+      console.warn(
+        "NEXT_PUBLIC_TENANT_KEY is not configured — lead submission will be rejected with HTTP 401 by the backend tenant-key guard"
+      )
     }
 
     this.tenantKey = tenantKey || ""
     this.client = axios.create({
-      baseURL: apiUrl || process.env.ZARP_API_ENDPOINT_URL || "https://api.example.com",
-      timeout: 10000,
+      baseURL: apiUrl || DEFAULT_ZARP_API_BASE_URL,
+      timeout: LEAD_REQUEST_TIMEOUT_MS,
       headers: {
         "Content-Type": "application/json",
       },
