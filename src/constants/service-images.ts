@@ -1,19 +1,32 @@
 // ---------------------------------------------------------------------------
 // Service Images - Single Source of Truth
 // ---------------------------------------------------------------------------
-// Replace these arrays with your own project photos when customizing.
-// ---------------------------------------------------------------------------
 
-const H = "/images/hero";
+const P = "/images/projects";
 
 export const HERO_CAROUSEL_IMAGES = [
-  { src: `${H}/image1.jpg`, label: "[Service 1]", id: 1 },
-  { src: `${H}/image2.jpg`, label: "[Service 2]", id: 2 },
-  { src: `${H}/image3.jpg`, label: "[Service 3]", id: 3 },
+  { src: `${P}/luxury-kitchen-remodel-custom-cabinets.jpg`, label: "Custom Cabinetry", id: 1 },
+  { src: `${P}/bathroom_remodel_finished_01.jpg`, label: "Bathroom Remodeling", id: 2 },
+  { src: `${P}/dark-wood-flooring-installation.jpg`, label: "Flooring Renovation", id: 3 },
 ] as const;
 
-// Placeholder arrays - replace with your own categorized images
-export const CATEGORY_1_IMAGES: string[] = [];
-export const CATEGORY_2_IMAGES: string[] = [];
-export const CATEGORY_3_IMAGES: string[] = [];
-export const CATEGORY_4_IMAGES: string[] = [];
+export const CATEGORY_1_IMAGES: string[] = [
+  `${P}/luxury-kitchen-remodel-custom-cabinets.jpg`,
+  `${P}/modern-custom-kitchen-cabinetry.jpg`,
+  `${P}/custom-white-kitchen-cabinetry.jpg`,
+];
+export const CATEGORY_2_IMAGES: string[] = [
+  `${P}/bathroom_remodel_finished_01.jpg`,
+  `${P}/bathroom_remodel_finished_02.jpg`,
+  `${P}/bathroom_remodel_finished_03.jpg`,
+];
+export const CATEGORY_3_IMAGES: string[] = [
+  `${P}/dark-wood-flooring-installation.jpg`,
+  `${P}/flooring-and-staircase-remodeling.jpg`,
+  `${P}/residential-flooring-installation.jpg`,
+];
+export const CATEGORY_4_IMAGES: string[] = [
+  `${P}/custom-walk-in-closet-installation.jpg`,
+  `${P}/remodeling_living-room_finished_01.jpg`,
+  `${P}/custom-outdoor-kitchen-cabinetry.jpg`,
+];

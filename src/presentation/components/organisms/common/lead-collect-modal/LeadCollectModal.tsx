@@ -66,27 +66,26 @@ const leadFormSchema = z
     }
   });
 
-// [Lead form service options - replace with the services your business offers]
 const projectTypeOptions = [
   {
-    value: "service-1",
-    label: "[Service 1]",
-    description: "[Short description of service 1 - highlight the main benefit for the customer.]"
+    value: "custom-cabinetry",
+    label: "Custom Cabinetry",
+    description: "Custom kitchens, bathroom vanities, and built-in storage tailored to your space.",
   },
   {
-    value: "service-2",
-    label: "[Service 2]",
-    description: "[Short description of service 2 - highlight the main benefit for the customer.]"
+    value: "kitchen-remodel",
+    label: "Kitchen Remodeling",
+    description: "Full-service kitchen transformation with coordinated design and installation.",
   },
   {
-    value: "service-3",
-    label: "[Service 3]",
-    description: "[Short description of service 3 - highlight the main benefit for the customer.]"
+    value: "bathroom-remodel",
+    label: "Bathroom Remodeling",
+    description: "Luxury vanities, tile work, and complete bathroom renovations.",
   },
   {
-    value: "service-4",
-    label: "[Service 4]",
-    description: "[Short description of service 4 - highlight the main benefit for the customer.]"
+    value: "flooring-carpentry",
+    label: "Flooring & Carpentry",
+    description: "Hardwood, tile, custom closets, and architectural trim carpentry.",
   },
 ];
 
@@ -225,11 +224,10 @@ export const LeadCollectModal = () => {
           {/* Left Form / Success Area */}
           <div className="flex-1 flex flex-col justify-start md:justify-center items-start gap-8 min-w-72">
             {/* Logo */}
-            <div className="w-40 h-14 relative shrink-0">
-                {/* Company logo alt text */}
+            <div className="w-40 h-10 relative shrink-0">
                 <Image
-                  src="/images/hero/logo.png"
-                  alt="[Company Name] Logo"
+                  src="/images/mc-logo.svg"
+                  alt="Master Cabinets Logo"
                   fill
                   className="object-contain object-left"
                 sizes="160px"

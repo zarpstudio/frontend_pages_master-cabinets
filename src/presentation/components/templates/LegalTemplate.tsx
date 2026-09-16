@@ -66,7 +66,7 @@ export default function LegalLayout({
               </div>
             </div>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              {config?.description || "[Legal document description - describe the purpose of this legal page.]"}
+              {config?.description || "Legal terms and policies for Master Cabinets LLC."}
             </p>
           </div>
 

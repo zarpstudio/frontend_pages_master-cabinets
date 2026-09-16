@@ -155,10 +155,10 @@ export const ContactModal = () => {
           {/* Left Form / Success Area */}
           <div className="flex-1 flex flex-col justify-start md:justify-center items-start gap-8 min-w-72">
             {/* Logo */}
-            <div className="w-40 h-14 relative shrink-0">
+            <div className="w-40 h-10 relative shrink-0">
               <Image
-                src="/images/hero/logo.png"
-                alt="[Company Name] Logo"
+                src="/images/mc-logo.svg"
+                alt="Master Cabinets Logo"
                 fill
                 className="object-contain object-left"
                 sizes="160px"

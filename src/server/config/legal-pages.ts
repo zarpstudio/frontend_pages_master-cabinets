@@ -5,8 +5,9 @@ const LAST_UPDATED = "April 6, 2026";
 const BASE_URL = SITE_URL;
 const COMMON_KEYWORDS = [
   COMPANY_NAME,
-  "[main service keyword]",
-  "[service area / region]",
+  "custom cabinetry",
+  "home remodeling Naples FL",
+  "South Florida cabinet installation",
 ];
 
 const createMetadata = (
@@ -26,12 +27,12 @@ export const legalPagesConfig: Record<string, LegalPageConfig> = {
   "terms-of-use": {
     title: "Terms of Use",
     description:
-      "[Terms of Use description - conditions governing the use of the website and the company's services.]",
+      "Conditions governing the use of the Master Cabinets website and remodeling services.",
     lastUpdated: LAST_UPDATED,
     icon: "FileText",
     metadata: createMetadata(
       "Terms of Use",
-      "[Meta description for Terms of Use page.]",
+      "Read the Terms of Use for Master Cabinets LLC regarding our custom cabinetry and home remodeling services in South Florida.",
       [
         "terms of use",
         "terms and conditions",
@@ -43,12 +44,12 @@ export const legalPagesConfig: Record<string, LegalPageConfig> = {
   "privacy-policy": {
     title: "Privacy Policy",
     description:
-      "[Privacy Policy description - how the company collects, uses, and protects personal data.]",
+      "How Master Cabinets LLC collects, uses, and protects your personal information.",
     lastUpdated: LAST_UPDATED,
     icon: "Shield",
     metadata: createMetadata(
       "Privacy Policy",
-      "[Meta description for Privacy Policy page.]",
+      "Read the Privacy Policy for Master Cabinets LLC to learn how we protect your personal information and project data.",
       [
         "privacy policy",
         "data protection",

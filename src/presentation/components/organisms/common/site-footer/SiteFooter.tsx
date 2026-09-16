@@ -11,7 +11,6 @@ import {
 } from "@/constants/business-info";
 
 const NAV_LINKS = [
-  { label: "Work", href: "/gallery" },
   { label: "Gallery", href: "/gallery" },
   { label: "Reviews", href: "/reviews" },
   { label: "Blog", href: "/blog" },

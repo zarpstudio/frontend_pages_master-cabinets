@@ -82,7 +82,7 @@ export default function Page() {
         </p>
         <p className="text-muted-foreground leading-relaxed">
           These Terms constitute a legally binding agreement between you and
-          {COMPANY_NAME}, a [business type] company operating in [service area]. We reserve the right to update these Terms at any
+          {COMPANY_NAME}, a custom cabinetry and home remodeling company operating in South Florida. We reserve the right to update these Terms at any
           time, and your continued use of the Site constitutes acceptance of any
           modifications.
         </p>
@@ -92,20 +92,17 @@ export default function Page() {
       <section id="services" className="scroll-mt-24">
         <h2 className="text-2xl font-bold mb-4">2. Description of Services</h2>
         <p className="text-muted-foreground leading-relaxed mb-4">
-          {COMPANY_NAME} provides professional [services] in [service area], including but not limited to:
+          {COMPANY_NAME} provides professional remodeling and cabinetry services in South Florida, including but not limited to:
         </p>
         <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-4">
           <li>
-            <strong>[Service 1]:</strong> [e.g. list of services],
-            [service items].
+            <strong>Custom Cabinetry:</strong> Design, fabrication, and installation of custom kitchen, bathroom, and closet cabinetry.
           </li>
           <li>
-            <strong>[Service 2]:</strong> Fixing damaged or defective
-            [service items].
+            <strong>Home Remodeling:</strong> Full kitchen, bathroom, and interior living space renovations.
           </li>
           <li>
-            <strong>[Service 3]:</strong> Cleaning, sealing, and ongoing
-            maintenance plans.
+            <strong>Flooring & Carpentry:</strong> Hardwood, tile, trim carpentry, and finish millwork installations.
           </li>
         </ul>
         <p className="text-muted-foreground leading-relaxed">
@@ -230,8 +227,8 @@ export default function Page() {
           error-free, secure, or free of viruses or other harmful components.
         </p>
         <p className="text-muted-foreground leading-relaxed">
-          Warranties related to our actual [Service 1], repair, and
-          maintenance services are governed solely by the written contract or
+          Warranties related to our actual custom cabinetry, remodeling, and
+          installation services are governed solely by the written contract or
           proposal executed between {COMPANY_NAME} and the customer for each
           specific project.
         </p>
@@ -350,12 +347,12 @@ export default function Page() {
         <h2 className="text-2xl font-bold mb-4">14. Governing Law</h2>
         <p className="text-muted-foreground leading-relaxed mb-4">
           These Terms shall be governed by and construed in accordance with the
-          laws of [State/Country], without regard to its
+          laws of the State of Florida, United States, without regard to its
           conflict of law provisions.
         </p>
         <p className="text-muted-foreground leading-relaxed">
           Any disputes arising under or in connection with these Terms shall be
-          subject to the exclusive jurisdiction of the courts located in [Jurisdiction].
+          subject to the exclusive jurisdiction of the state and federal courts located in Collier County, Florida.
         </p>
       </section>
 

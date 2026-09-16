@@ -48,7 +48,7 @@ export default function Page() {
             7. Your Rights
           </a>
           <a href="#state-privacy" className="text-primary hover:underline">
-            8. [State/Region] Privacy Rights
+            8. Florida Privacy Rights
           </a>
           <a href="#children" className="text-primary hover:underline">
             9. Children&apos;s Privacy
@@ -74,7 +74,7 @@ export default function Page() {
           customers&apos; personal information. This Privacy Policy describes
           how we collect, use, disclose, and safeguard your information when you
           visit our website <strong>{SITE_URL.replace(/^https?:\/\//, "")}</strong> (the
-          &quot;Site&quot;) or use our [company services].
+          &quot;Site&quot;) or use our custom cabinetry and home remodeling services.
         </p>
         <p className="text-muted-foreground leading-relaxed mb-4">
           By accessing or using our Site and services, you agree to the
@@ -82,7 +82,7 @@ export default function Page() {
           the terms of this policy, please do not access the Site.
         </p>
         <p className="text-muted-foreground leading-relaxed">
-          {COMPANY_NAME} is a [business type] company based in [city/region], serving [customers] in [service area] and surrounding areas.
+          {COMPANY_NAME} is a custom cabinetry and home remodeling company based in Naples, FL, serving homeowners across Southwest Florida and surrounding areas.
         </p>
       </section>
 
@@ -104,7 +104,7 @@ export default function Page() {
           </li>
           <li>
             <strong>Project Details:</strong> Information about your property and
-            the [services you are interested in].
+            the remodeling, cabinetry, and design services you are interested in.
           </li>
           <li>
             <strong>Communication Records:</strong> Messages, emails, and other
@@ -154,7 +154,7 @@ export default function Page() {
         <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
           <li>
             <strong>Service Delivery:</strong> To provide, maintain, and improve
-            our [company services].
+            our custom cabinetry and remodeling services.
           </li>
           <li>
             <strong>Communication:</strong> To respond to your inquiries,
@@ -339,13 +339,13 @@ export default function Page() {
         </p>
       </section>
 
-      {/* 8. [State/Region] Privacy Rights */}
+      {/* 8. Florida Privacy Rights */}
       <section id="state-privacy" className="scroll-mt-24">
         <h2 className="text-2xl font-bold mb-4">
-          8. [State/Region] Privacy Rights
+          8. Florida Privacy Rights
         </h2>
         <p className="text-muted-foreground leading-relaxed mb-4">
-          As a company based in [State/Region], we comply with applicable privacy laws. If you are a resident of [State/Region], you may have the following
+          As a company based in Florida, we comply with applicable privacy laws. If you are a resident of Florida, you may have the following
           rights regarding your personal information:
         </p>
         <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
@@ -364,7 +364,7 @@ export default function Page() {
           <li>
             <strong>Right to Opt-Out:</strong> You can opt out of the sale of
             your personal data or the use of your data for targeted advertising.
-            We do not currently sell personal information.
+            We do not sell personal information.
           </li>
         </ul>
         <p className="text-muted-foreground leading-relaxed mt-4">
@@ -383,7 +383,7 @@ export default function Page() {
         </p>
         <p className="text-muted-foreground leading-relaxed mt-4">
           This Privacy Policy is governed by and construed in accordance with
-          the laws of [State/Country], without regard to its conflict of law provisions.
+          the laws of the State of Florida, United States, without regard to its conflict of law provisions.
         </p>
       </section>
 

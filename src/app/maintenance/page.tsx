@@ -5,7 +5,7 @@ import { COMPANY_NAME } from "@/constants/business-info";
 export const metadata: Metadata = {
   title: `Site Under Maintenance | ${COMPANY_NAME}`,
   description:
-    "[Maintenance page description - brief message about the site being temporarily unavailable.]",
+    "Master Cabinets website is currently undergoing scheduled maintenance. Please call us directly for inquiries and quotes.",
   robots: {
     index: false,
     follow: false,

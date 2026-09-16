@@ -1,4 +1,5 @@
 // ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 // Reviews - Single Source of Truth
 //
 // These are the client's real Google reviews, transcribed from the Business
@@ -14,6 +15,7 @@
 // Tags are only populated where the reviewer actually says so. Most people do
 // not name the service or the city, so most cards carry Google's own attribute
 // chip ("Great price", "Reasonable price") and nothing else.
+// ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 
 /** Filter chips shared by the Reviews and Gallery pages (Figma 60:18380 / 60:12187). */

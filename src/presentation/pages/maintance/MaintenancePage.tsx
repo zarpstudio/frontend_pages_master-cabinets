@@ -75,21 +75,20 @@ export default function MaintenancePage() {
             >
               {/* Replace href with your actual Google Maps link and update the address */}
               <a
-                href="https://maps.google.com/maps?q=[YOUR+BUSINESS+NAME]"
+                href="https://maps.google.com/maps?q=Naples+FL+Master+Cabinets"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 text-sm text-gray-400 hover:text-primary transition-colors duration-200 font-rubik group"
-                aria-label="[Directions to your office - update this aria-label]"
+                aria-label="Directions to Master Cabinets office in Naples, FL"
               >
                 <RiMapPinLine
                   className="w-4 h-4 group-hover:scale-110 transition-transform"
                   aria-hidden="true"
                 />
-                {/* Replace with your actual address */}
-                <span itemProp="streetAddress">[Street address]</span>,{" "}
-                <span itemProp="addressLocality">[City]</span>,{" "}
-                <span itemProp="addressRegion">[State]</span>{" "}
-                <span itemProp="postalCode">[Postal code]</span>
+                <span itemProp="streetAddress">Naples, FL</span>,{" "}
+                <span itemProp="addressLocality">Naples</span>,{" "}
+                <span itemProp="addressRegion">FL</span>{" "}
+                <span itemProp="postalCode">34102</span>
               </a>
             </address>
           </div>

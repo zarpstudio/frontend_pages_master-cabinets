@@ -10,15 +10,15 @@ import {
   SOCIAL_LINKS,
 } from "@/constants/business-info";
 
-// Article structured data - replace with content relevant to your business
+// Article structured data
 export const ArticleJsonLd = () => {
   const articleData = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: `${COMPANY_NAME}: [Main article headline about the company's services]`,
-    description: "[Article description - summarize the main services and service area.]",
+    headline: `${COMPANY_NAME}: Custom Cabinetry & Remodeling Guides`,
+    description: "Expert remodeling guides, design tips, and material advice from Master Cabinets LLC in Naples, Florida.",
     image: [
-      `${SITE_URL}/images/hero/logo.png`,
+      `${SITE_URL}/images/og-default.jpg`,
     ],
     author: {
       "@type": "Organization",
@@ -30,30 +30,25 @@ export const ArticleJsonLd = () => {
       name: COMPANY_NAME,
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/images/hero/logo.png`,
+        url: `${SITE_URL}/images/mc-logo.svg`,
       },
     },
-    // Replace with actual publication dates - do not leave as hardcoded strings
-    datePublished: new Date().toISOString().split('T')[0],
-    dateModified: new Date().toISOString().split('T')[0],
+    datePublished: "2026-08-24",
+    dateModified: "2026-08-24",
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": SITE_URL,
+      "@id": `${SITE_URL}/blog`,
     },
     keywords: [
-      // Replace with keywords relevant to your business and service area
-      "[company name]",
-      "[main service keyword]",
-      "[service keyword 2]",
-      "[service keyword 3]",
-      "[service keyword 4]",
-      "[service keyword 5]",
-      "[city/region keyword 1]",
-      "[city/region keyword 2]",
-      "[industry keyword]",
+      "Master Cabinets",
+      "custom cabinetry",
+      "kitchen remodeling Naples FL",
+      "bathroom renovations South Florida",
+      "custom closets Naples",
+      "cabinet installation Florida",
+      "home remodeling",
     ],
-    articleSection: "[Article section - e.g. 'Home Improvement']",
-    // wordCount omitted - do not hardcode a guess; omit or compute dynamically from real content
+    articleSection: "Home Remodeling & Design",
     inLanguage: "en-US",
   };
 

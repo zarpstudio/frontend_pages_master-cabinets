@@ -11,7 +11,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "How long will my project take?",
     answer:
-      "Project timelines depend on scope. A kitchen remodel typically runs 3–6 weeks, while a full home renovation can take 8–16 weeks. We provide a clear timeline estimate at the proposal stage so you know what to expect before we start.",
+      "Project timelines depend on scope. A kitchen remodel typically runs 3-6 weeks, while a full home renovation can take 8-16 weeks. We provide a clear timeline estimate at the proposal stage so you know what to expect before we start.",
   },
   {
     question: "How long have you been in business?",
@@ -26,7 +26,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Do you offer free quotes?",
     answer:
-      "Absolutely. We walk the space, scope the work, and give you a real number in writing - no fee, no obligation, and no pressure to move forward. Use the form on this page or call us directly to get started.",
+      "Absolutely. We walk the space, scope the work, and give you a real number in writing: no fee, no obligation, and no pressure to move forward. Use the form on this page or call us directly to get started.",
   },
   {
     question: "Do you provide a warranty?",

@@ -142,7 +142,6 @@ export default function GallerySection() {
           <BentoCopy duplicate />
         </div>
       </div>
-
       <div className="mx-auto mt-8 flex max-w-[1440px] justify-center px-4 sm:px-8">
         <ActionButtonGroup className="sm:justify-center" />
       </div>

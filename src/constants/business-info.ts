@@ -11,13 +11,19 @@
  * Canonical site URL. Used for SEO, JSON-LD, sitemap, robots, Open Graph, etc.
  * Falls back to the production domain when the env var is not set.
  */
-export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  // Falls back to the real domain, not localhost: without the env var every
-  // canonical, OG url and sitemap entry would otherwise ship pointing at
-  // localhost (or at the throwaway *.vercel.app deployment host).
-  "https://www.mastercabinets.net"
-).replace(/\/$/, "");
+function normalizeSiteUrl(url: string): string {
+  let normalized = url.trim();
+  if (!/^https?:\/\//i.test(normalized)) {
+    normalized = `https://${normalized}`;
+  }
+  normalized = normalized.replace(/^http:\/\//i, "https://");
+  normalized = normalized.replace(/^https:\/\/mastercabinets\.net/i, "https://www.mastercabinets.net");
+  return normalized.replace(/\/+$/, "");
+}
+
+export const SITE_URL = normalizeSiteUrl(
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.mastercabinets.net"
+);
 
 /** Legal / display company name */
 export const COMPANY_NAME = "Master Cabinets" as const;

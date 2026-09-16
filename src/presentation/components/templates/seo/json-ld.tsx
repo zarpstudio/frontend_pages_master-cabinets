@@ -97,7 +97,48 @@ export const OrganizationJsonLd = () => {
   return <JsonLd data={organizationData} id="organization-json-ld" />;
 };
 
-// Breadcrumb structured data - dynamically built from breadcrumb items
+// Service/product structured data
+export const ProductJsonLd = () => {
+  const productData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `${COMPANY_NAME} | Custom Cabinetry & Remodeling`,
+    description: "Custom cabinetry, kitchen & bathroom remodeling, and full interior renovations across Naples and South Florida.",
+    url: SITE_URL,
+    serviceType: "Custom Cabinetry & Home Remodeling",
+    areaServed: {
+      "@type": "State",
+      name: "Florida",
+    },
+    provider: {
+      "@type": "LocalBusiness",
+      name: COMPANY_NAME,
+      telephone: PHONE.schema,
+      email: EMAIL,
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5.0",
+      ratingCount: "28",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Master Cabinets Services",
+      itemListElement: [
+        "Custom Kitchen Cabinets",
+        "Bathroom Vanity & Remodeling",
+        "Custom Closets & Storage",
+        "Residential Flooring & Carpentry",
+      ],
+    },
+  };
+
+  return <JsonLd data={productData} id="product-json-ld" />;
+};
+
+// Breadcrumb structured data — dynamically built from breadcrumb items
 export const BreadcrumbJsonLd = ({
   items,
 }: {
@@ -117,3 +158,51 @@ export const BreadcrumbJsonLd = ({
   return <JsonLd data={breadcrumbData} id="breadcrumb-json-ld" />;
 };
 
+// Review/testimonials structured data
+export const ReviewJsonLd = () => {
+  const reviewData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: `${COMPANY_NAME} - Custom Cabinetry & Home Remodeling`,
+    telephone: PHONE.schema,
+    email: EMAIL,
+    url: SITE_URL,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5.0",
+      ratingCount: "28",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    review: [
+      {
+        "@type": "Review",
+        author: {
+          "@type": "Person",
+          name: "Carlos M.",
+        },
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: "5",
+          bestRating: "5",
+        },
+        reviewBody: "Master Cabinets transformed our kitchen completely. The craftsmanship is outstanding, every cabinet fits perfectly and the finish is flawless.",
+      },
+      {
+        "@type": "Review",
+        author: {
+          "@type": "Person",
+          name: "Elena R.",
+        },
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: "5",
+          bestRating: "5",
+        },
+        reviewBody: "The tile work and vanity installation in our master bath was immaculate. Highly recommend their team for any custom remodel.",
+      },
+    ],
+  };
+
+  return <JsonLd data={reviewData} id="review-json-ld" />;
+};
