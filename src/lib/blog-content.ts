@@ -1,6 +1,7 @@
 import type {
   BlogArticleImage,
   BlogArticleImageObject,
+  BlogArticleSummary,
 } from "@/types/blog.type";
 
 export function stripMarkdown(markdown: string): string {
@@ -28,6 +29,29 @@ export function getBlogExcerpt(content: string, maxLength: number = 160): string
   const plainText = stripMarkdown(content);
   if (plainText.length <= maxLength) return plainText;
   return plainText.substring(0, maxLength).trim() + "...";
+}
+
+/**
+ * Description used for an article's SEO/social metadata sinks.
+ *
+ * The CMS-authored `meta_description` is written for search snippets; the
+ * excerpt is a 160-char cut of the body that ends in an ellipsis. Prefer the
+ * authored value and fall back to the excerpt only when it is absent or blank.
+ *
+ * `normalizeBlogArticle` in `blog-api.ts` folds the API's camelCase
+ * `metaDescription` into this snake_case key, so `meta_description` is the only
+ * key ever populated on a normalized article. The parameter is deliberately a
+ * narrow `Pick` rather than the whole article: reading the unpopulated
+ * `metaDescription` here becomes a compile error instead of a silent no-op that
+ * still typechecks and builds clean.
+ *
+ * The `.trim()` is load-bearing — `||` treats "" as falsy but a whitespace-only
+ * CMS value would otherwise leak into the meta tag.
+ */
+export function resolveArticleDescription(
+  article: Pick<BlogArticleSummary, "content" | "meta_description">
+): string {
+  return article.meta_description?.trim() || getBlogExcerpt(article.content);
 }
 
 export function getBlogReadingTime(content: string): number {

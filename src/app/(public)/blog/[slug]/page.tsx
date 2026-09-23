@@ -3,7 +3,10 @@ import { notFound } from "next/navigation";
 import { getArticleBySlug, getArticles } from "@/lib/blog-api";
 import { ArticleDetail } from "@/presentation/components/organisms/blog/article-detail";
 import { BlogReadingProgress } from "@/presentation/components/organisms/blog/blog-reading-progress";
-import { getBlogExcerpt, getPrimaryBlogImage } from "@/lib/blog-content";
+import {
+  getPrimaryBlogImage,
+  resolveArticleDescription,
+} from "@/lib/blog-content";
 import PricingCTASection from "@/presentation/components/organisms/home-page-sections/mc/PricingCTASection";
 import { COMPANY_NAME } from "@/constants/business-info";
 
@@ -24,17 +27,17 @@ export async function generateMetadata({
   }
 
   const primaryImage = getPrimaryBlogImage(article.images);
-  const excerpt = getBlogExcerpt(article.content);
+  const description = resolveArticleDescription(article);
 
   return {
     title: `${article.title} | ${COMPANY_NAME} Blog`,
-    description: excerpt,
+    description,
     alternates: {
       canonical: `/blog/${article.slug}`,
     },
     openGraph: {
       title: article.title,
-      description: excerpt,
+      description,
       type: "article",
       publishedTime: article.published_at,
       authors: article.author ? [article.author.full_name] : undefined,
@@ -43,7 +46,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: article.title,
-      description: excerpt,
+      description,
       images: primaryImage ? [primaryImage.url] : undefined,
     },
   };
