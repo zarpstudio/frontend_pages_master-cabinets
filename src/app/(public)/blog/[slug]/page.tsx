@@ -1,6 +1,10 @@
+import { cache } from "react";
 import type { Metadata } from "next";
+import { PHASE_PRODUCTION_BUILD } from "next/constants";
 import { notFound } from "next/navigation";
 import { getArticleBySlug, getArticles } from "@/lib/blog-api";
+import { BUILD_CMS_CALL_INTERVAL_MS, createPacer } from "@/lib/build-cms-pacer";
+import { getAllArticleSlugs } from "@/lib/blog-static-params";
 import { ArticleDetail } from "@/presentation/components/organisms/blog/article-detail";
 import { BlogReadingProgress } from "@/presentation/components/organisms/blog/blog-reading-progress";
 import {
@@ -14,11 +18,23 @@ interface ArticlePageProps {
   params: Promise<{ slug: string }>;
 }
 
+// At build time, space every CMS call from this route (see build-cms-pacer.ts).
+// At runtime (ISR revalidation, on-demand renders) calls go straight through.
+const isBuild = process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD;
+const paceBuildCall = createPacer(BUILD_CMS_CALL_INTERVAL_MS);
+
+// generateMetadata and the page share one render, so `cache` gives them one
+// paced call per slug. Returns and throws exactly like getArticleBySlug, so
+// its null / throw contract (blog-api.ts) reaches the page unchanged.
+const loadArticle = cache((slug: string) =>
+  isBuild ? paceBuildCall(() => getArticleBySlug(slug)) : getArticleBySlug(slug),
+);
+
 export async function generateMetadata({
   params,
 }: ArticlePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const article = await getArticleBySlug(slug);
+  const article = await loadArticle(slug);
 
   if (!article) {
     return {
@@ -54,7 +70,7 @@ export async function generateMetadata({
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params;
-  const article = await getArticleBySlug(slug);
+  const article = await loadArticle(slug);
 
   if (!article) {
     notFound();
@@ -100,10 +116,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
 export async function generateStaticParams() {
   try {
-    const { data: articles } = await getArticles(1, 100);
-    return articles.map((article) => ({
-      slug: article.slug,
-    }));
+    // Walks every CMS list page: the API clamps `limit` to 50, so reading
+    // page 1 alone prerendered only the 50 newest articles. Only ever runs
+    // at build time, so every list call is paced.
+    const slugs = await getAllArticleSlugs((page, limit) =>
+      paceBuildCall(() => getArticles(page, limit)),
+    );
+    return slugs.map((slug) => ({ slug }));
   } catch {
     // API may be unavailable during build (e.g. missing auth).
     // Return empty so pages are generated on-demand via ISR.
