@@ -30,10 +30,19 @@ test("serializes hostile CMS strings as parseable, script-safe JSON-LD", () => {
   assert.doesNotMatch(servedHtml.replace("</script>", ""), /<b>INJECTED<\/b>/i);
 });
 
+// Every JS/TS module an emitter can live in: .js .jsx .ts .tsx .mjs .cjs .mts .cts.
+const SOURCE_FILE = /\.[cm]?[jt]sx?$/;
+
 test("every ld+json emitter uses the shared serializer and no local escape rule", () => {
   const sourceRoot = join(process.cwd(), "src");
+  // The helper itself names application/ld+json and JSON.stringify in its doc
+  // comment and body; its escape rules are checked separately below.
+  const helperPath = join(sourceRoot, "lib/json-ld.ts");
   const emitterFiles = walk(sourceRoot).filter(
-    (path) => path.endsWith(".tsx") && readFileSync(path, "utf8").includes("application/ld+json"),
+    (path) =>
+      SOURCE_FILE.test(path) &&
+      path !== helperPath &&
+      readFileSync(path, "utf8").includes("application/ld+json"),
   );
   assert.ok(emitterFiles.length > 0);
   for (const path of emitterFiles) {
@@ -45,7 +54,7 @@ test("every ld+json emitter uses the shared serializer and no local escape rule"
     assert.equal(source.indexOf("﻿", 1), -1, `${path}: U+FEFF after the first character`);
   }
 
-  const helper = readFileSync(join(sourceRoot, "lib/json-ld.ts"), "utf8");
+  const helper = readFileSync(helperPath, "utf8");
   for (const rule of [".replace(/</g", ".replace(/>/g", ".replace(/&/g"]) {
     assert.ok(helper.includes(rule), `lib/json-ld.ts is missing ${rule}`);
   }
