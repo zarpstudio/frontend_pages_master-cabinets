@@ -9,6 +9,7 @@ import {
 } from "@/lib/blog-content";
 import PricingCTASection from "@/presentation/components/organisms/home-page-sections/mc/PricingCTASection";
 import { COMPANY_NAME } from "@/constants/business-info";
+import { serializeJsonLd } from "@/lib/json-ld";
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;
@@ -86,7 +87,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <BlogReadingProgress />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <main className="min-h-screen w-full bg-white pb-10 pt-[92px] sm:pt-[104px] lg:pt-[120px]">
         <div className="mx-auto w-full max-w-[1364px] px-4 pb-24 sm:px-8 lg:px-16">
