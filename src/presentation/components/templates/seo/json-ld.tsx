@@ -8,6 +8,7 @@ import {
   SOCIAL_LINKS,
   BUSINESS_HOURS,
 } from "@/constants/business-info";
+import { serializeJsonLd } from "@/lib/json-ld";
 
 interface JsonLdProps {
   data: Record<string, unknown>;
@@ -29,7 +30,7 @@ export const JsonLd = ({ data, id = "json-ld" }: JsonLdProps) => {
       id={id}
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(data).replace(/</g, "\u003c"),
+        __html: serializeJsonLd(data),
       }}
     />
   );
